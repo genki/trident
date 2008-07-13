@@ -3,7 +3,7 @@
 if File.exist?('config/environment.rb')
   tail = Process.fork{exec 'tail -f log/development.log'}
   autotest = Process.fork{exec 'autotest -f'}
-  system './script/console'
+  system './script/console --irb="irb -rtrident"'
   Process.kill(:HUP, tail, autotest)
 else
   puts "You should change dir to RAILS_ROOT"
