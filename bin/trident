@@ -6,5 +6,7 @@ if File.exist?('config/environment.rb')
   system './script/console --irb="irb -rtrident"'
   Process.kill(:HUP, tail, autotest)
 else
-  puts "You should change dir to RAILS_ROOT"
+  autotest = Process.fork{exec 'autotest -f'}
+  system 'irb -rtrident'
+  Process.kill(:HUP, autotest)
 end

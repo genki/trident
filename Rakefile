@@ -17,7 +17,7 @@ DESCRIPTION       = ""
 RUBYFORGE_PROJECT = "trident"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w(trident)
-VERS              = "0.0.2"
+VERS              = "0.0.3"
 
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
@@ -58,6 +58,7 @@ spec = Gem::Specification.new do |s|
 	s.autorequire       = ""
 	s.test_files        = Dir["test/*_test.rb"]
 
+	s.add_dependency('redgreen', '>=1.2.2')
 	#s.add_dependency('activesupport', '>=1.3.1')
 	#s.required_ruby_version = '>= 1.8.2'
 

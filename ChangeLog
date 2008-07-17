@@ -1,3 +1,7 @@
+== 0.0.3 / 2008-07-17
+
+* Run irb if the current dir is not of Rails app.
+
 == 0.0.2 / 2008-07-14
 
 * Added Trident module.
