@@ -1,5 +1,8 @@
 module Trident
+  VERSION = '0.0.4'
+
   def self.reload
-    system 'killall -INT autotest'
+    pid = ENV['TRIDENT_PID']
+    system "kill -INT #{pid}"
   end
 end

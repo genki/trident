@@ -8,6 +8,7 @@ require 'rake/rdoctask'
 require 'rake/contrib/rubyforgepublisher'
 require 'rake/contrib/sshpublisher'
 require 'fileutils'
+require 'lib/trident'
 include FileUtils
 
 NAME              = "trident"
@@ -17,7 +18,7 @@ DESCRIPTION       = ""
 RUBYFORGE_PROJECT = "trident"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w(trident)
-VERS              = "0.0.3"
+VERS              = Trident::VERSION
 
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']

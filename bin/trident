@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
+TRIDENT_PATH = File.join(File.dirname(__FILE__), %w(.. lib trident))
+
 if File.exist?('config/environment.rb')
   tail = Process.fork{exec 'tail -f log/development.log'}
   autotest = Process.fork{exec 'autotest -f'}
-  system './script/console --irb="irb -rtrident"'
+  ENV['TRIDENT_PID'] = autotest.to_s
+  system %{./script/console --irb="irb -r#{TRIDENT_PATH}"}
   Process.kill(:HUP, tail, autotest)
 else
   autotest = Process.fork{exec 'autotest -f'}
-  system 'irb -rtrident'
+  ENV['TRIDENT_PID'] = autotest.to_s
+  system %{irb -r#{TRIDENT_PATH}}
   Process.kill(:HUP, autotest)
 end

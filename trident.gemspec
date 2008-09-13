@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = %q{trident}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Genki Takiuchi"]
   s.autorequire = %q{}
-  s.date = %q{2008-07-17}
+  s.date = %q{2008-09-13}
   s.default_executable = %q{trident}
   s.description = %q{}
   s.email = %q{genki@s21g.com}
@@ -26,8 +26,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if current_version >= 3 then
+      s.add_runtime_dependency(%q<redgreen>, [">= 1.2.2"])
     else
+      s.add_dependency(%q<redgreen>, [">= 1.2.2"])
     end
   else
+    s.add_dependency(%q<redgreen>, [">= 1.2.2"])
   end
 end
